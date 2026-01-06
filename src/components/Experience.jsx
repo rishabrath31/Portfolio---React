@@ -11,15 +11,12 @@ import {
   Users,
   Code2,
   ChevronDown,
-  Star,
-  Building,
-  Clock
+  Star
 } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState('experience')
   const [expandedExperience, setExpandedExperience] = useState(null)
 
   const experiences = [
@@ -92,36 +89,6 @@ const Experience = () => {
     },
   ]
 
-  const companies = [
-    {
-      name: 'Clapgrow Technologies',
-      role: 'Developer & Consultant',
-      duration: '2025-Present',
-      logo: '🚀',
-      description: 'Frappe ERP development and custom applications',
-      impact: 'ERP solutions built',
-      link: '#'
-    },
-    {
-      name: 'Maison Technology',
-      role: 'Web Development Apprentice',
-      duration: '2024-2025',
-      logo: '💻',
-      description: 'Frontend development for live client projects',
-      impact: 'Multiple live projects',
-      link: '#'
-    },
-    {
-      name: 'Tech Mahindra',
-      role: 'Technical Support',
-      duration: '2023-2024',
-      logo: '💼',
-      description: 'Customer support and issue resolution',
-      impact: 'Efficient problem solving',
-      link: 'https://www.techmahindra.com'
-    }
-  ]
-
   const skills = [
     { name: 'Problem Solving', level: 95 },
     { name: 'Communication', level: 90 },
@@ -170,50 +137,15 @@ const Experience = () => {
             </p>
           </motion.div>
 
-          {/* Tab Navigation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={getViewportSettings()}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            className="flex justify-center mb-8 sm:mb-12 px-2 sm:px-0"
-          >
-            <div className="flex bg-muted rounded-lg p-1">
-              <button
-                onClick={() => setActiveTab('experience')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-md transition-all duration-300 ${
-                  activeTab === 'experience'
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <Briefcase className="h-4 w-4 mr-2 inline" />
-                Work Experience
-              </button>
-              <button
-                onClick={() => setActiveTab('companies')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium rounded-md transition-all duration-300 ${
-                  activeTab === 'companies'
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <Building className="h-4 w-4 mr-2 inline" />
-                Companies & Collaborations
-              </button>
-            </div>
-          </motion.div>
 
           {/* Content */}
           <motion.div
-            key={activeTab}
             variants={tabVariants}
             initial="hidden"
             whileInView="visible"
             viewport={getViewportSettings()}
           >
-            {activeTab === 'experience' && (
-              <div className="space-y-6 sm:space-y-8 px-2 sm:px-0">
+            <div className="space-y-6 sm:space-y-8 px-2 sm:px-0">
                 {/* Timeline */}
                 <div className="relative">
                   {/* Timeline Line */}
@@ -370,45 +302,6 @@ const Experience = () => {
                   </Card>
                 </motion.div>
               </div>
-            )}
-
-            {activeTab === 'companies' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 px-2 sm:px-0">
-                {companies.map((company, index) => (
-                  <motion.div key={company.name} variants={itemVariants}>
-                    <Card className="bg-white/5 backdrop-blur-sm border-2 border-slate-200 dark:border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 text-center h-full">
-                      <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                        <div className="text-3xl sm:text-4xl mb-3">{company.logo}</div>
-                        <h3 className="text-lg font-bold text-foreground mb-2">{company.name}</h3>
-                        <p className="text-sm font-semibold text-primary mb-2">{company.role}</p>
-                        <div className="flex items-center justify-center space-x-2 text-xs text-muted-foreground mb-3">
-                          <Clock className="h-3 w-3" />
-                          <span>{company.duration}</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-grow">
-                          {company.description}
-                        </p>
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-center space-x-2 text-xs text-primary font-medium">
-                            <TrendingUp className="h-3 w-3" />
-                            <span>{company.impact}</span>
-                          </div>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="w-full text-xs"
-                            onClick={() => window.open(company.link, '_blank')}
-                          >
-                            <ExternalLink className="h-3 w-3 mr-2" />
-                            View Profile
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            )}
           </motion.div>
         </motion.div>
       </div>
