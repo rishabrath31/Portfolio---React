@@ -237,14 +237,14 @@ const Hero = () => {
                 </Card>
 
                 {/* Floating Elements - Static for performance */}
-                <div className="absolute -top-8 right-8 hidden lg:block">
+                {/* <div className="absolute -top-8 right-8 hidden lg:block">
                   <Card className="bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-white/50 shadow-xl px-4 py-3">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
                       <span className="text-sm font-semibold text-foreground">Open to Collaborations</span>
                     </div>
                   </Card>
-                </div>
+                </div> */}
 
                 <div className="absolute -bottom-8 left-8 hidden lg:block">
                   <Card className="bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-white/50 shadow-xl px-4 py-3">
