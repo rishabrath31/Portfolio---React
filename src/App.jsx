@@ -12,9 +12,9 @@ import '@/styles/globals.css'
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="rishab-portfolio-theme">
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden w-full">
         <Header />
-        <main>
+        <main className="w-full overflow-x-hidden">
           <Hero />
           <About />
           <Skills />

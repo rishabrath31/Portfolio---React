@@ -54,9 +54,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     font-feature-settings: "rlig" 1, "calt" 1;
     transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  html {
+    overflow-x: hidden;
   }
   
   /* Optimized transitions - only on specific elements */

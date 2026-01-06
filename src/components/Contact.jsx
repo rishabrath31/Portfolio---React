@@ -35,37 +35,42 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      subtitle: 'Send me an email',
+      description: 'Send me an email',
       value: 'irishabrath319@gmail.com',
       href: 'mailto:irishabrath319@gmail.com',
       color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-500/10',
       available: 'Usually responds within 24 hours'
     },
     {
       icon: Phone,
       title: 'Phone',
-      subtitle: 'Call or WhatsApp',
+      description: 'Call or WhatsApp',
       value: '+91-8917401586',
       href: 'tel:+918917401586',
       color: 'from-green-500 to-green-600',
+      bgColor: 'bg-green-500/10',
       available: 'Available 9 AM - 6 PM IST'
     },
     {
       icon: MapPin,
       title: 'Location',
-      subtitle: 'Based in',
-      value: 'Chandrasekharpur, Bhubaneswar',
+      description: 'Based in',
+      value: 'Bhubaneswar',
+      location: 'Chandrasekharpur,',
       href: 'https://maps.google.com/?q=Bhubaneswar,Odisha,751024',
       color: 'from-purple-500 to-purple-600',
+      bgColor: 'bg-purple-500/10',
       available: 'Open to remote work'
     },
     {
       icon: MessageSquare,
       title: 'Let\'s Chat',
-      subtitle: 'Schedule a call',
+      description: 'Schedule',
       value: 'Book a meeting',
       href: '#',
       color: 'from-orange-500 to-orange-600',
+      bgColor: 'bg-orange-500/10',
       available: 'Free 30-min consultation'
     }
   ]
@@ -197,20 +202,20 @@ const Contact = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
             {/* Contact Methods */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={getViewportSettings()}
               transition={{ duration: 0.8 }}
-              className="space-y-6 sm:space-y-8"
+              className="space-y-8"
             >
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
+              <div className="space-y-4">
+                <h3 className="text-3xl sm:text-4xl font-bold text-foreground">
                   Let's Start a Conversation
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   Whether you have a question about my work, want to discuss a potential project, 
                   or just want to say hello, I'm always happy to connect with fellow developers, 
                   designers, and entrepreneurs.
@@ -218,7 +223,7 @@ const Contact = () => {
               </div>
 
               {/* Contact Cards */}
-              <div className="space-y-4">
+              <div className="flex flex-col gap-3 sm:gap-4 w-full">
                 {contactMethods.map((method, index) => (
                   <motion.div
                     key={method.title}
@@ -226,27 +231,50 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={getViewportSettings()}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ y: -4 }}
+                    className="w-full"
                   >
-                    <Card className="bg-white/5 backdrop-blur-sm border-2 border-slate-200 dark:border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 cursor-pointer"
-                          onClick={() => window.open(method.href, '_blank')}>
-                      <CardContent className="p-4 sm:p-6">
-                        <div className="flex items-center space-x-4">
-                          <div className={`p-3 rounded-full bg-gradient-to-r ${method.color}`}>
-                            <method.icon className="h-5 w-5 text-white" />
+                    <Card 
+                      className={`${method.bgColor} backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 cursor-pointer group overflow-hidden relative w-full`}
+                      onClick={() => window.open(method.href, '_blank')}
+                    >
+                      <CardContent className="p-4 sm:p-5 md:p-6">
+                        <div className="flex items-start gap-3 sm:gap-4 w-full">
+                          <div className={`p-2.5 sm:p-3 rounded-xl bg-gradient-to-br ${method.color} shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                            <method.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-foreground text-base sm:text-lg">
+                          <div className="flex-1 min-w-0 space-y-1.5 sm:space-y-1">
+                            {/* Line 1: Title */}
+                            <h4 className="font-bold text-foreground text-base sm:text-lg leading-tight">
                               {method.title}
                             </h4>
-                            <p className="text-sm text-muted-foreground mb-1">
-                              {method.subtitle}
+                            
+                            {/* Line 2: Description */}
+                            <p className="text-sm text-muted-foreground leading-relaxed break-words">
+                              {method.title === 'Location' ? (
+                                <>
+                                  <span>{method.description} </span>
+                                  <span className="text-muted-foreground">{method.location} </span>
+                                  <span className="text-primary font-semibold">{method.value}</span>
+                                </>
+                              ) : (
+                                method.description
+                              )}
                             </p>
-                            <p className="text-sm font-medium text-primary">
-                              {method.value}
-                            </p>
-                            <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                              <Clock className="h-3 w-3 mr-1" />
-                              {method.available}
+                            
+                            {/* Line 3: Value (Email, Phone, etc.) */}
+                            {method.title !== 'Location' && (
+                              <p className="text-sm sm:text-base font-semibold text-primary break-all break-words leading-relaxed">
+                                {method.value}
+                              </p>
+                            )}
+                            
+                            {/* Line 4: Availability */}
+                            <div className="flex items-center gap-1.5 pt-1 sm:pt-1.5">
+                              <Clock className="h-3 w-3 text-muted-foreground flex-shrink-0" />
+                              <p className="text-xs sm:text-sm text-muted-foreground break-words leading-relaxed">
+                                {method.available}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -262,27 +290,30 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={getViewportSettings()}
                 transition={{ duration: 0.3, delay: 0.4 }}
-                className="pt-4 sm:pt-6"
+                className="pt-6 sm:pt-8"
               >
-                <h4 className="text-lg font-semibold text-foreground mb-4">
+                <h4 className="text-xl font-bold text-foreground mb-5">
                   Follow Me On
                 </h4>
-                <div className="flex space-x-3 sm:space-x-4">
+                <div className="flex flex-wrap gap-3">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border-2 border-slate-300 dark:border-white/20 text-muted-foreground hover:bg-white/20 hover:scale-110 transition-all duration-300 ${social.color}`}
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      className={`group relative p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 ${social.color} overflow-hidden`}
+                      whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={getViewportSettings()}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
-                      <social.icon className="h-5 w-5" />
+                      <div className="relative z-10">
+                        <social.icon className="h-5 w-5" />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </motion.a>
                   ))}
                 </div>
@@ -296,78 +327,78 @@ const Contact = () => {
               viewport={getViewportSettings()}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-white/5 backdrop-blur-sm border-2 border-slate-200 dark:border-white/10">
-                <CardHeader className="pb-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+              <Card className="bg-card/50 backdrop-blur-sm border border-border shadow-xl">
+                <CardHeader className="pb-6 border-b border-border">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                     Send Me a Message
                   </h3>
                   <p className="text-muted-foreground">
                     Fill out the form below and I'll get back to you as soon as possible.
                   </p>
                 </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <CardContent className="pt-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 w-full">
                     {/* Name and Email Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                      <div className="w-full min-w-0">
                         <Input
                           type="text"
                           name="name"
                           placeholder="Your Name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`input-mobile ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
+                          className={`input-mobile w-full ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
                           disabled={formStatus === 'loading'}
                         />
                         {errors.name && (
-                          <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                          <p className="text-red-500 text-xs mt-1 break-words">{errors.name}</p>
                         )}
                       </div>
-                      <div>
+                      <div className="w-full min-w-0">
                         <Input
                           type="email"
                           name="email"
                           placeholder="Your Email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`input-mobile ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
+                          className={`input-mobile w-full ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
                           disabled={formStatus === 'loading'}
                         />
                         {errors.email && (
-                          <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                          <p className="text-red-500 text-xs mt-1 break-words">{errors.email}</p>
                         )}
                       </div>
                     </div>
 
                     {/* Subject */}
-                    <div>
+                    <div className="w-full min-w-0">
                       <Input
                         type="text"
                         name="subject"
                         placeholder="Subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className={`input-mobile ${errors.subject ? 'border-red-500 focus:border-red-500' : ''}`}
+                        className={`input-mobile w-full ${errors.subject ? 'border-red-500 focus:border-red-500' : ''}`}
                         disabled={formStatus === 'loading'}
                       />
                       {errors.subject && (
-                        <p className="text-red-500 text-xs mt-1">{errors.subject}</p>
+                        <p className="text-red-500 text-xs mt-1 break-words">{errors.subject}</p>
                       )}
                     </div>
 
                     {/* Message */}
-                    <div>
+                    <div className="w-full min-w-0">
                       <Textarea
                         name="message"
                         placeholder="Your Message"
                         rows={6}
                         value={formData.message}
                         onChange={handleChange}
-                        className={`input-mobile resize-none ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
+                        className={`input-mobile resize-none w-full ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
                         disabled={formStatus === 'loading'}
                       />
                       {errors.message && (
-                        <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+                        <p className="text-red-500 text-xs mt-1 break-words">{errors.message}</p>
                       )}
                     </div>
 
@@ -420,22 +451,23 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="text-center mt-12 sm:mt-16 md:mt-20 px-2 sm:px-0"
+            className="text-center mt-16 sm:mt-20 md:mt-24"
           >
-            <Card className="bg-gradient-to-br from-blue-100/80 to-indigo-100/60 dark:from-primary/10 dark:to-purple-500/10 border border-primary/20">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
+            <Card className="bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-500/10 border border-primary/20 shadow-xl overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+              <CardContent className="p-8 sm:p-10 relative z-10">
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   Ready to Build Something Great?
                 </h3>
-                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-base">
                   I'm always excited to work on new projects and collaborate with amazing people. 
                   Let's discuss how we can bring your ideas to life!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="group font-semibold border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="group font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
                   >
                     <MessageSquare className="h-5 w-5 mr-2 group-hover:rotate-12 transition-transform" />
@@ -443,7 +475,7 @@ const Contact = () => {
                   </Button>
                   <Button
                     size="lg"
-                    className="group font-semibold bg-primary hover:bg-primary/90"
+                    className="group font-semibold bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
                     onClick={() => window.open('https://calendly.com/rishabrath', '_blank')}
                   >
                     <Clock className="h-5 w-5 mr-2 group-hover:rotate-12 transition-transform" />
