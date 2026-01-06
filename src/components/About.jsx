@@ -29,7 +29,7 @@ const About = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMGE4YWQiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] bg-repeat" />
       </div>
 
-      <div className="container-responsive relative z-10">
+      <div className="container-responsive relative z-10 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -42,7 +42,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16 md:mb-20 px-4"
+            className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
             <motion.div
               initial={{ scale: 0 }}
@@ -72,7 +72,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={getViewportSettings()}
               transition={{ duration: 0.8 }}
-              className="flex justify-center px-4"
+              className="flex justify-center"
             >
               <div className="relative max-w-md w-full">
                 <motion.div
@@ -109,9 +109,8 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={getViewportSettings()}
               transition={{ duration: 0.3, delay: 0.2 }}
-              className="px-4"
             >
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -151,9 +150,8 @@ const About = () => {
               whileInView={{ opacity: 1 }}
               viewport={getViewportSettings()}
               transition={{ duration: 0.8 }}
-              className="px-4"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 {/* Left Column - Icon & Title */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
@@ -250,7 +248,6 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={getViewportSettings()}
               transition={{ duration: 0.6 }}
-              className="px-4"
             >
               <Card className="bg-gradient-to-br from-white/95 via-blue-50/50 to-indigo-50/30 dark:from-white/5 dark:via-primary/5 dark:to-purple-500/5 backdrop-blur-sm border-2 border-slate-200 dark:border-white/10">
                 <CardContent className="p-8 sm:p-10 lg:p-12">

@@ -137,7 +137,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-br from-white via-indigo-50/20 to-purple-50/20 dark:from-background dark:to-muted/20 relative">
-      <div className="container-responsive">
+      <div className="container-responsive px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -150,7 +150,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16 px-2 sm:px-0"
+            className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Featured <span className="gradient-text">Projects</span>
@@ -168,7 +168,7 @@ const Projects = () => {
             transition={{ duration: 0.3, delay: 0.2 }}
             className="mb-8 sm:mb-12 md:mb-16"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 px-2 sm:px-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {featuredProjects.slice(0, 2).map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -268,7 +268,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.3, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2 sm:px-0"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-12"
           >
             {filters.map((filter) => (
               <motion.button
@@ -295,7 +295,7 @@ const Projects = () => {
             whileInView={{ opacity: 1 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-2 sm:px-0"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
           >
             {filteredProjects.map((project, index) => (
               <motion.div

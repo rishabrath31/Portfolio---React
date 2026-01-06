@@ -72,7 +72,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 dark:from-muted/20 dark:to-background relative">
-      <div className="container-responsive">
+      <div className="container-responsive px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -85,7 +85,7 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-12 md:mb-16 px-4 sm:px-2"
+            className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">
               <span className="gradient-text">Skills</span> & Expertise
@@ -101,7 +101,7 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2 sm:px-0"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-12"
           >
             {skillCategories.map((category) => (
               <motion.button
@@ -128,7 +128,7 @@ const Skills = () => {
             initial="hidden"
             whileInView="visible"
             viewport={getViewportSettings()}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 px-2 sm:px-0"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
           >
             {filteredSkills.length > 0 ? (
               filteredSkills.map((skill, index) => (

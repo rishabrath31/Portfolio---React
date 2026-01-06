@@ -29,9 +29,9 @@ const Hero = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-full blur-3xl opacity-30 hidden lg:block" style={{ willChange: 'transform' }} />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl opacity-30 hidden lg:block" style={{ willChange: 'transform' }} />
 
-      <div className="container-responsive relative z-10 min-h-screen flex items-center py-20 sm:py-24 md:py-28 lg:py-32">
+      <div className="container-responsive relative z-10 min-h-screen flex items-center py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 sm:px-6">
         <div className="w-full max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             
             {/* Left Column - Content */}
             <motion.div
@@ -53,12 +53,12 @@ const Hero = () => {
               </motion.div>
 
               {/* Main Heading */}
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
                 >
                   <span className="block text-foreground">Hi, I'm</span>
                   <span className="block bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -97,7 +97,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
-                className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl"
               >
                 I craft exceptional digital experiences through innovative web development and 
                 cutting-edge technology solutions. Passionate about creating impactful software 
@@ -109,11 +109,11 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
               >
                 <Button 
                   size="lg" 
-                  className="w-full sm:w-auto min-h-[56px] text-base sm:text-lg px-8 py-6 group bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="w-full sm:w-auto min-h-[48px] sm:min-h-[56px] text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6 group bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   onClick={() => {
                     const link = document.createElement('a')
                     link.href = '/files/Rishab_Rath.pdf'
@@ -131,7 +131,7 @@ const Hero = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="w-full sm:w-auto min-h-[56px] text-base sm:text-lg px-8 py-6 group font-semibold border-2 border-primary/30 hover:border-primary hover:bg-primary/10 text-foreground transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/50 dark:bg-white/5"
+                  className="w-full sm:w-auto min-h-[48px] sm:min-h-[56px] text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6 group font-semibold border-2 border-primary/30 hover:border-primary hover:bg-primary/10 text-foreground transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/50 dark:bg-white/5"
                   onClick={() => {
                     const projectsSection = document.getElementById('projects')
                     if (projectsSection) {
@@ -178,9 +178,9 @@ const Hero = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}
-              className="lg:col-span-5 flex justify-center lg:justify-end relative"
+              className="lg:col-span-5 flex justify-center lg:justify-end relative mt-6 sm:mt-8 lg:mt-0"
             >
-              <div className="relative w-full max-w-md">
+              <div className="relative w-full max-w-sm sm:max-w-md">
                 {/* Decorative Elements - Static for performance */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-100/80 to-indigo-100/60 dark:from-primary/10 dark:to-purple-500/10 rounded-full blur-xl hidden lg:block" />
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-xl hidden lg:block" />

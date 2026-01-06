@@ -95,21 +95,21 @@ const Header = () => {
         style={{ willChange: 'transform, opacity' }}
       >
         <div className="container-responsive">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-16 sm:h-20 px-2 sm:px-0">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 cursor-pointer"
+              className="flex items-center space-x-2 cursor-pointer flex-shrink-0"
               onClick={() => scrollToSection('#home')}
             >
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-lg">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-base sm:text-lg">
                   R
                 </div>
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-lg font-bold">
+                <h1 className="text-base sm:text-lg font-bold">
                   <span className="gradient-text">RISHAB</span>
                   <span className="text-foreground ml-1">RATH</span>
                 </h1>
@@ -136,16 +136,16 @@ const Header = () => {
             </nav>
 
             {/* Right Side - Theme Toggle & Mobile Menu */}
-            <div className="flex items-center space-x-2">
-              {/* Theme Toggle */}
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              {/* Theme Toggle - Visible on all screens */}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="w-9 h-9 rounded-lg hover:bg-muted transition-colors"
+                className="w-10 h-10 sm:w-9 sm:h-9 rounded-lg hover:bg-muted transition-colors flex-shrink-0"
                 aria-label="Toggle theme"
               >
-                <ThemeIcon className="h-4 w-4" />
+                <ThemeIcon className="h-5 w-5 sm:h-4 sm:w-4" />
               </Button>
 
               {/* Mobile Menu Button */}
@@ -153,7 +153,7 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden w-9 h-9 rounded-lg hover:bg-muted"
+                className="lg:hidden w-10 h-10 sm:w-9 sm:h-9 rounded-lg hover:bg-muted flex-shrink-0"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -171,9 +171,9 @@ const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 sm:top-20 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-b border-border"
+            className="fixed top-16 sm:top-20 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-b border-border shadow-lg"
           >
-            <div className="container-responsive py-4">
+            <div className="container-responsive py-4 px-4">
               <nav className="space-y-2">
                 {navItems.map((item) => (
                   <button
@@ -188,6 +188,16 @@ const Header = () => {
                     {item.name}
                   </button>
                 ))}
+                {/* Theme Toggle in Mobile Menu */}
+                <div className="pt-2 border-t border-border mt-2">
+                  <button
+                    onClick={toggleTheme}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200"
+                  >
+                    <span>Theme</span>
+                    <ThemeIcon className="h-5 w-5" />
+                  </button>
+                </div>
               </nav>
             </div>
           </motion.div>

@@ -114,7 +114,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-br from-blue-50/30 via-white to-slate-50/50 dark:from-muted/20 dark:to-background relative">
-      <div className="container-responsive">
+      <div className="container-responsive px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -127,7 +127,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={getViewportSettings()}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16 px-2 sm:px-0"
+            className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Professional <span className="gradient-text">Experience</span>
@@ -145,7 +145,7 @@ const Experience = () => {
             whileInView="visible"
             viewport={getViewportSettings()}
           >
-            <div className="space-y-6 sm:space-y-8 px-2 sm:px-0">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 {/* Timeline */}
                 <div className="relative">
                   {/* Timeline Line */}

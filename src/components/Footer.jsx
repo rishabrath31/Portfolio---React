@@ -34,7 +34,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-muted/20 to-background border-t border-white/10">
-      <div className="container-responsive py-8 sm:py-12">
+      <div className="container-responsive py-6 sm:py-8 md:py-12 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
