@@ -49,7 +49,7 @@ const Hero = () => {
               >
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <Sparkles className="h-4 w-4" />
-                <span className="text-sm sm:text-base">Open to new opportunities</span>
+                {/* <span className="text-sm sm:text-base">Open to new opportunities</span> */}
               </motion.div>
 
               {/* Main Heading */}
