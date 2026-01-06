@@ -61,7 +61,7 @@ const Contact = () => {
       href: 'https://maps.google.com/?q=Bhubaneswar,Odisha,751024',
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-500/10',
-      available: 'Open to remote work'
+      available: 'Available for remote collaborations'
     },
     {
       icon: MessageSquare,

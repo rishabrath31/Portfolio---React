@@ -49,7 +49,7 @@ const Hero = () => {
               >
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <Sparkles className="h-4 w-4" />
-                <span className="text-sm sm:text-base">Available for opportunities</span>
+                <span className="text-sm sm:text-base">Open to new opportunities</span>
               </motion.div>
 
               {/* Main Heading */}
@@ -241,7 +241,7 @@ const Hero = () => {
                   <Card className="bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-white/50 shadow-xl px-4 py-3">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
-                      <span className="text-sm font-semibold text-foreground">Open to Work</span>
+                      <span className="text-sm font-semibold text-foreground">Open to Collaborations</span>
                     </div>
                   </Card>
                 </div>
