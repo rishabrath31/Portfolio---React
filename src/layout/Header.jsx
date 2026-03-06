@@ -50,8 +50,8 @@ const Header = () => {
       >
         <div className="container-responsive px-4 sm:px-6">
           <div className={`relative flex items-center justify-between px-6 h-16 rounded-2xl transition-all duration-500 ${scrolled
-              ? 'bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl'
-              : 'bg-transparent border-transparent'
+            ? 'bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl'
+            : 'bg-transparent border-transparent'
             }`}>
             {/* Logo */}
             <a href="#hero" className="flex items-center gap-3 group">
@@ -73,8 +73,8 @@ const Header = () => {
                   key={item.href}
                   href={item.href}
                   className={`relative px-5 py-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 rounded-lg ${activeSection === item.href.substring(1)
-                      ? 'text-primary'
-                      : 'text-muted-foreground hover:text-foreground'
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
                     }`}
                 >
                   {activeSection === item.href.substring(1) && (
@@ -99,7 +99,7 @@ const Header = () => {
               </button>
 
               <button
-                className="lg:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center"
+                className="flex lg:hidden w-10 h-10 rounded-xl glass-surface items-center justify-center"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
