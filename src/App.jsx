@@ -1,12 +1,12 @@
 import { ThemeProvider } from '@/hooks/use-theme'
-import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Skills from '@/components/Skills'
-import Projects from '@/components/Projects'
-import Experience from '@/components/Experience'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
+import Header from '@/layout/Header'
+import Hero from '@/sections/Hero'
+import Profile from '@/sections/Profile'
+import Projects from '@/sections/Projects'
+import Experience from '@/sections/Experience'
+import Certifications from '@/sections/Certifications'
+import Contact from '@/sections/Contact'
+import Footer from '@/layout/Footer'
 import '@/styles/globals.css'
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
         <Header />
         <main className="w-full overflow-x-hidden">
           <Hero />
-          <About />
-          <Skills />
+          <Profile />
           <Projects />
           <Experience />
+          <Certifications />
           <Contact />
         </main>
         <Footer />
